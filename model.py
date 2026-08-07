@@ -105,8 +105,12 @@ def partition_indices(indices, train_ratio, val_ratio):
     test_idx = indices[n_train + n_val:]
     return train_idx, val_idx, test_idx
 
-# Step 12 - subset_xy (not yet solved)
-# TODO: implement
+# Step 12 - subset_xy
+def subset_xy(X, y, indices):
+    # TODO: Select the rows of X and y at the given indices.
+    X_sub = X[indices]
+    y_sub = y[indices]
+    return X_sub, y_sub
 
 # Step 13 - ols_fit (not yet solved)
 # TODO: implement
