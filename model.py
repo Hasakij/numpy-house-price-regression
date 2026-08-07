@@ -120,8 +120,12 @@ def ols_fit(X, y):
     ols = np.linalg.solve(A, b)
     return ols
 
-# Step 14 - ols_predict (not yet solved)
-# TODO: implement
+# Step 14 - ols_predict
+def ols_predict(X, theta):
+    # TODO: Predict continuous targets with a fitted linear model.
+    if X.shape[1] != len(theta):
+        raise ValueError("X has {X.shape[1]} featuresm theta has {len(theta)} elements")
+    return X @ theta
 
 # Step 15 - mean_absolute_error (not yet solved)
 # TODO: implement
