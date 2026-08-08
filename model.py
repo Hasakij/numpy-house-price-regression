@@ -148,8 +148,14 @@ def root_mean_squared_error(y_true, y_pred):
     rmse = np.sqrt(np.mean(np.square(y_true - y_pred)))
     return rmse
 
-# Step 17 - r_squared (not yet solved)
-# TODO: implement
+# Step 17 - r_squared
+def r_squared(y_true, y_pred):
+    # TODO: Compute R^2 = 1 - SS_res/SS_tot (return 0.0 if SS_tot is 0)...
+    ss_res = np.sum(np.square(y_true - y_pred))
+    ss_tot = np.sum(np.square(y_true - np.mean(y_true)))
+    if ss_tot == 0:
+        return 0.0
+    return 1 - (ss_res / ss_tot)
 
 # Step 18 - residual_summary (not yet solved)
 # TODO: implement
