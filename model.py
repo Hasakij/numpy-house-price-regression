@@ -151,6 +151,8 @@ def root_mean_squared_error(y_true, y_pred):
 # Step 17 - r_squared
 def r_squared(y_true, y_pred):
     # TODO: Compute R^2 = 1 - SS_res/SS_tot (return 0.0 if SS_tot is 0)...
+    y_true = np.asarray(y_true, dtype=float)
+    y_pred = np.asarray(y_pred, dtype=float)
     ss_res = np.sum(np.square(y_true - y_pred))
     ss_tot = np.sum(np.square(y_true - np.mean(y_true)))
     if ss_tot == 0:
