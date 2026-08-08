@@ -172,8 +172,22 @@ def residual_summary(y_true, y_pred):
         'median_abs': median_abs
     }
 
-# Step 19 - prepare_cleaned_features (not yet solved)
-# TODO: implement
+# Step 19 - prepare_cleaned_features
+def prepare_cleaned_features(X, iqr_k=1.5):
+    """Impute NaNs then IQR-clip columns to produce a clean numeric matrix.
+
+    Args:
+        X: (N, F) array-like of floats, may contain NaN.
+        iqr_k: IQR multiplier passed to compute_iqr_bounds (default 1.5).
+
+    Returns:
+        (N, F) float ndarray with no NaNs, columns clipped to IQR bounds.
+    """
+    # TODO: Produce a clean numeric matrix via impute then IQR clip
+    X_imp = impute_nan_with_mean(X)
+    lower, upper = compute_iqr_bounds(X_imp, k=iqr_k)
+    X_clean = clip_columns(X_imp, lower, upper)
+    return X_clean
 
 # Step 20 - assemble_feature_matrix (not yet solved)
 # TODO: implement
